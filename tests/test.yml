@@ -1,0 +1,6 @@
+---
+- name: Install awscli
+  hosts: localhost
+  remote_user: root
+  roles:
+    - sgaunet.awscli

@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat awscli
+      ansible.builtin.stat:
+        path: /usr/local/bin/aws
+      register: awscli_present
+    - name: Check awscli is present
+      ansible.builtin.assert:
+        that:
+          - awscli_present.stat.exists
+        fail_msg: "awscli not setup"
+        success_msg: "awscli is setup"
