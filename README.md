@@ -1,5 +1,6 @@
 [![Tag](https://img.shields.io/github/v/tag/sgaunet/ansible-role-awscli.svg)](https://github.com/sgaunet/ansible-role-awscli/tags)
 [![CI](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/ci.yml/badge.svg)](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/ci.yml)
+[![Release](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/release.yml/badge.svg)](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/release.yml)
 [![License](https://img.shields.io/github/license/sgaunet/ansible-role-awscli.svg)](LICENSE)
 
 # Ansible Role: awscli
