@@ -1,7 +1,8 @@
+[![Tag](https://img.shields.io/github/v/tag/sgaunet/ansible-role-awscli.svg)](https://github.com/sgaunet/ansible-role-awscli/tags)
+[![CI](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/ci.yml/badge.svg)](https://github.com/sgaunet/ansible-role-awscli/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/sgaunet/ansible-role-awscli.svg)](LICENSE)
 
 # Ansible Role: awscli
-
-[![CI](https://github.com/sgaunet/ansible-role-awscli/workflows/CI/badge.svg)](https://github.com/sgaunet/ansible-role-awscli/actions?query=workflow%3ACI)
 
 An Ansible Role that installs awscli on Linux.
 
