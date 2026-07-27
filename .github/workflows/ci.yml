@@ -1,40 +1,22 @@
 ---
 name: CI
 'on':
-  pull_request:
   push:
-    branches:
-      - '*'
-  schedule:
-    - cron: "30 6 * * 5"
-
-defaults:
-  run:
-    working-directory: 'sgaunet.awscli'
+  pull_request:
 
 jobs:
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v4
-        with:
-          path: 'sgaunet.awscli'
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+      - name: Install mise
+        uses: jdx/mise-action@v4
 
-      - name: Install test dependencies.
-        run: |
-          pip install -r requirements.txt
-
-      - name: Lint code.
-        run: |
-          ansible-lint
+      - name: Run ansible-lint.
+        run: mise run lint
 
   molecule:
     name: Molecule
@@ -42,30 +24,17 @@ jobs:
     strategy:
       matrix:
         distro:
-          - rockylinux9
-          - ubuntu2204
-          - debian12
-          - fedora39
+          - ubuntu2604
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v4
-        with:
-          path: 'sgaunet.awscli'
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install test dependencies.
-        run: |
-          pip3 install -r requirements.txt
+      - name: Install mise
+        uses: jdx/mise-action@v4
 
       - name: Run Molecule tests.
-        run: |
-          # molecule destroy
-          molecule test
+        run: mise run molecule-test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
